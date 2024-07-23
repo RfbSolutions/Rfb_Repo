@@ -1,0 +1,242 @@
+Option Explicit
+
+Sub TrocarPneu()
+
+Dim Pergunta1, Pergunta2, Pergunta3, Pergunta4, Pergunta5, Pergunta6, Pergunta7, Pergunta8, Pergunta9, Pergunta10, Pergunta11, Pergunta12, Pergunta13, Pergunta14, Pergunta15, Pergunta16 As String
+Dim Resposta As Integer
+Resposta = MsgBox("Uma pessoa precisa trocar o pneu furado de um carro. Quais as ações necessárias para realizar essa tarefa e em qual sequência?", vbOKOnly, "Informação!")
+
+
+Pergunta1 = MsgBox("Pegar a chave de roda?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                                       
+    If Pergunta1 = vbYes Then
+        
+    ElseIf Pergunta1 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+
+Pergunta2 = MsgBox("Pegar o macaco?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+    If Pergunta2 = vbYes Then
+        
+    ElseIf Pergunta2 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta3 = MsgBox("Pegar o pneu reserva?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+      If Pergunta3 = vbYes Then
+        
+    ElseIf Pergunta3 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta4 = MsgBox("Afrouxar os parafusos da roda" & vbCr & "que contém o pneu furado" & vbCr & "com a chave de roda?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+     If Pergunta4 = vbYes Then
+        
+    ElseIf Pergunta4 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta5 = MsgBox("Encaixar o macaco embaixo do carro?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+                     
+   If Pergunta5 = vbYes Then
+        
+    ElseIf Pergunta5 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta6 = MsgBox("Levantar o carro até que o pneu rode?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                    
+     If Pergunta6 = vbYes Then
+        
+    ElseIf Pergunta6 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta7 = MsgBox("Retirar os parafusos da roda que contém o pneu furado?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+     If Pergunta7 = vbYes Then
+        
+    ElseIf Pergunta7 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+        
+    End If
+                     
+Pergunta8 = MsgBox("Retirar a roda com o pneu furado?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+     If Pergunta8 = vbYes Then
+        
+    ElseIf Pergunta8 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+
+Pergunta9 = MsgBox("Colocar o pneu reserva?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+      If Pergunta9 = vbYes Then
+        
+    ElseIf Pergunta9 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta10 = MsgBox("Encaixar os parafusos na roda?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+      If Pergunta10 = vbYes Then
+        
+    ElseIf Pergunta10 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta11 = MsgBox("Abaixar o carro com o macaco?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+     If Pergunta11 = vbYes Then
+        
+    ElseIf Pergunta11 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta12 = MsgBox("Apertar os parafusos da roda?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+     If Pergunta12 = vbYes Then
+        
+    ElseIf Pergunta12 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta13 = MsgBox("Retirar o macaco debaixo do carro?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+    
+   If Pergunta13 = vbYes Then
+        
+    ElseIf Pergunta13 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta14 = MsgBox("Guardar o macaco?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+   If Pergunta14 = vbYes Then
+        
+    ElseIf Pergunta14 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta15 = MsgBox("Guardar a chave de roda?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+     If Pergunta15 = vbYes Then
+        
+    ElseIf Pergunta15 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+            
+    End If
+                     
+Pergunta16 = MsgBox("Guardar o pneu furado?" & vbCr & vbCr & _
+                     "S ou N ?", vbYesNo)
+                     
+      If Pergunta16 = vbYes Then
+     Beep
+        MsgBox "Parabéns, você acertou todas as questões!"
+        
+    ElseIf Pergunta16 = vbNo Then
+        MsgBox "Erro", vbCritical
+        
+        Exit Sub
+    Else
+        Exit Sub
+    
+    
+    
+          
+                         
+    End If
+            
+    
+End Sub
