@@ -1,0 +1,67 @@
+Sub CadastroSemCutpaste()
+
+Dim Nome As String, Genero As String, Salario As Double
+
+    If Range("J1") = "" Or Range("J2") = "" Or Range("J3") = "" Then
+        MsgBox "Erro", vbCritical
+        MsgBox "Dados devem ser preenchidos", vbInformation
+        Exit Sub
+        End If
+
+  If Range("A2") >= 1 Then
+        
+Sheets("Banco").Select
+ThisWorkbook.Worksheets("Banco").Range("A" & Rows.Count).End(xlUp).Offset(1, 0) = ThisWorkbook.Worksheets("Base").Range("A" & Rows.Count).End(xlUp).Offset(0, 0)
+ThisWorkbook.Worksheets("Banco").Range("B" & Rows.Count).End(xlUp).Offset(1, 0) = ThisWorkbook.Worksheets("Base").Range("B" & Rows.Count).End(xlUp).Offset(0, 0)
+ThisWorkbook.Worksheets("Banco").Range("C" & Rows.Count).End(xlUp).Offset(1, 0) = ThisWorkbook.Worksheets("Base").Range("C" & Rows.Count).End(xlUp).Offset(0, 0)
+ThisWorkbook.Worksheets("Banco").Range("D" & Rows.Count).End(xlUp).Offset(1, 0) = ThisWorkbook.Worksheets("Base").Range("D" & Rows.Count).End(xlUp).Offset(0, 0)
+ThisWorkbook.Worksheets("Banco").Range("E" & Rows.Count).End(xlUp).Offset(1, 0) = Date
+ThisWorkbook.Worksheets("Banco").Range("F" & Rows.Count).End(xlUp).Offset(1, 0) = ThisWorkbook.Worksheets("Base").Range("F" & Rows.Count).End(xlUp).Offset(0, 0)
+  Sheets("Base").Select
+  
+Range("A" & Rows.Count).End(xlUp).Offset(0, 0) = ""
+Range("B" & Rows.Count).End(xlUp).Offset(0, 0) = ""
+Range("C" & Rows.Count).End(xlUp).Offset(0, 0) = ""
+Range("D" & Rows.Count).End(xlUp).Offset(0, 0) = ""
+Range("E" & Rows.Count).End(xlUp).Offset(0, 0) = ""
+Range("F" & Rows.Count).End(xlUp).Offset(0, 0) = ""
+  
+  Range("J1") = ""
+Range("J2") = ""
+Range("J3") = ""
+
+Range("J1").Select
+
+    Exit Sub
+    
+Else
+
+Nome = Range("J1")
+Genero = Range("J2")
+Salario = Range("J3")
+
+    If Salario < 1000 Then
+    Range("F" & Rows.Count).End(xlUp).Offset(1, 0) = "Bronze"
+    
+    ElseIf Salario < 3000 Then
+     Range("F" & Rows.Count).End(xlUp).Offset(1, 0) = "Prata"
+    
+    ElseIf Salario < 5000 Then
+     Range("F" & Rows.Count).End(xlUp).Offset(1, 0) = "Ouro"
+     
+    ElseIf Salario < 8000 Then
+     Range("F" & Rows.Count).End(xlUp).Offset(1, 0) = "Platina"
+    
+    ElseIf Salario >= 8000 Then
+     Range("F" & Rows.Count).End(xlUp).Offset(1, 0) = "VIP"
+
+    End If
+    
+Range("A" & Rows.Count).End(xlUp).Offset(1, 0) = WorksheetFunction.Max(Planilha2.Range("A:A")) + 1
+Range("B" & Rows.Count).End(xlUp).Offset(1, 0) = Nome
+Range("C" & Rows.Count).End(xlUp).Offset(1, 0) = Genero
+Range("D" & Rows.Count).End(xlUp).Offset(1, 0) = Salario
+Range("E" & Rows.Count).End(xlUp).Offset(1, 0) = Date
+
+End If
+End Sub
