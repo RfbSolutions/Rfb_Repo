@@ -1,3 +1,4 @@
+
 Sub cadastroChique3()
 
 Dim Nome As String, Idade As Integer, i As Integer
@@ -7,30 +8,42 @@ Dim Nome As String, Idade As Integer, i As Integer
         MsgBox "Dados devem ser preenchidos!"
         Exit Sub
         End If
-        
+       
+    If Range("E2") = 0 Then
+    
+    GoTo aqui
+    
+    End If
+    
     If Range("Banco!A2").Offset(0, 0) = Range("E2") Then
     
-    MsgBox "Dados cadastrados com sucesso"
-    
-   ' Range("Base!E2") = Range("Banco!A2")
-   ' Range("Base!E3") = Range("Banco!B2")
-    'Range("Base!E4") = Range("Banco!C2")
-    
+   Range("Banco!A2") = Range("Base!E2")
+   Range("Banco!B2") = Range("Base!E3")
+   Range("Banco!C2") = Range("Base!E4")
+   
+   Range("E2") = ""
+   Range("E3") = ""
+   Range("E4") = ""
+   
+    MsgBox "Dados atualizados com sucesso"
     Exit Sub
     
     End If
     
-    
 i = 1
 
-    Do While Range("Banco!A2").Offset(0, 0) <> Range("E2")
+    Do While Range("Banco!A2").Offset(1, 0) <> Range("E2")
     
     If Range("Banco!A2").Offset(i, 0) = Range("E2") Then
-        MsgBox "Dados cadastrados com sucesso"
+        MsgBox "Dados atualizados com sucesso"
         
-    Range("Base!E2") = Range("Banco!A2").Offset(i, 0)
-    Range("Base!E3") = Range("Banco!A2").Offset(i, 0).Offset(0, 1)
-    Range("Base!E4") = Range("Banco!A2").Offset(i, 0).Offset(0, 2)
+    Range("Banco!A2").Offset(i, 0) = Range("Base!E2")
+    Range("Banco!A2").Offset(i, 0).Offset(0, 1) = Range("Base!E3")
+    Range("Banco!A2").Offset(i, 0).Offset(0, 2) = Range("Base!E4")
+    
+    Range("E2") = ""
+    Range("E3") = ""
+    Range("E4") = ""
     
     Exit Sub
     Else
@@ -40,13 +53,15 @@ i = 1
        i = i + 1
     Loop
     
+aqui:
+    
 Range("E2") = WorksheetFunction.Max(Planilha2.Range("A:A")) + 1
 Nome = Range("E3")
 Idade = Range("E4")
 
-Range("Banco!A" & Rows.Count).End(xlUp).Offset(1, 0) = Range("Base!E2")
-Range("Banco!B" & Rows.Count).End(xlUp).Offset(1, 0) = Range("Base!E3")
-Range("Banco!C" & Rows.Count).End(xlUp).Offset(1, 0) = Range("Base!E4")
+    Range("Banco!A" & Rows.Count).End(xlUp).Offset(1, 0) = Range("E2")
+    Range("Banco!B" & Rows.Count).End(xlUp).Offset(1, 0) = Range("E3")
+    Range("Banco!C" & Rows.Count).End(xlUp).Offset(1, 0) = Range("E4")
 
 Range("E2") = ""
 Range("E3") = ""
@@ -62,10 +77,25 @@ Dim Numero As Integer, i As Integer
 
 Numero = Application.InputBox("Insira o ID")
 
+    If Numero = False Then
+    Exit Sub
+    
+End If
+
     If Numero > WorksheetFunction.Max(Planilha2.Range("A:A")) Then
      
      MsgBox "erro"
      
+     Exit Sub
+     End If
+     
+     If Numero < WorksheetFunction.Min(Planilha2.Range("A:A")) Then
+     
+     MsgBox "Dados Não Encontrados"
+     
+    Range("E2") = ""
+    Range("E3") = ""
+    Range("E4") = ""
      Exit Sub
      End If
      
@@ -81,16 +111,69 @@ Numero = Application.InputBox("Insira o ID")
     
     End If
     
-i = 1
-
-    Do While Range("Banco!A2").Offset(0, 0) <> Numero
+    i = 1
+    
+Do While Range("Banco!A2").Offset(0, 0) <> Numero
     
     If Range("Banco!A2").Offset(i, 0) = Numero Then
-        MsgBox "Aee Caraio"""
+        MsgBox "Aee Caraio"
         
     Range("Base!E2") = Range("Banco!A2").Offset(i, 0)
     Range("Base!E3") = Range("Banco!A2").Offset(i, 0).Offset(0, 1)
     Range("Base!E4") = Range("Banco!A2").Offset(i, 0).Offset(0, 2)
+    
+    Exit Sub
+    
+    Else
+     
+      End If
+     
+       i = i + 1
+    Loop
+    
+End Sub
+
+
+Sub Exclusao()
+
+Dim i As Integer
+
+ If Range("E3") = "" Or Range("E4") = "" Then
+        MsgBox "erro"
+        MsgBox "Dados devem ser preenchidos!"
+        Exit Sub
+        End If
+
+    If Range("Banco!A2").Offset(0, 0) = Range("E2") Then
+    
+   Range("Banco!A2") = "" 'Range("Base!E2")
+   Range("Banco!B2") = "" 'Range("Base!E3")
+   Range("Banco!C2") = "" 'Range("Base!E4")
+   
+   Range("E2") = ""
+   Range("E3") = ""
+   Range("E4") = ""
+   
+    MsgBox "Dados Excluidos com sucesso"
+    Exit Sub
+    
+    End If
+
+i = 1
+
+    Do While Range("Banco!A2").Offset(0, 0) <> Range("E2")
+    
+    If Range("Banco!A2").Offset(i, 0) = Range("E2") Then
+        
+    Range("Banco!A2").Offset(i, 0) = "" 'Range("Base!E2")
+    Range("Banco!A2").Offset(i, 0).Offset(0, 1) = "" 'Range("Base!E3")
+    Range("Banco!A2").Offset(i, 0).Offset(0, 2) = "" 'Range("Base!E4")
+    
+    Range("E2") = ""
+    Range("E3") = ""
+    Range("E4") = ""
+    
+    MsgBox "Dados excluidos com sucesso"
     
     Exit Sub
     Else
@@ -99,5 +182,6 @@ i = 1
      
        i = i + 1
     Loop
-    
+
 End Sub
+
