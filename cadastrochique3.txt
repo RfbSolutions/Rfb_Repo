@@ -2,19 +2,20 @@ Sub cadastroChique3()
 
 Dim Nome As String, Idade As Integer, i As Integer
 
-    If Range("E3") = "" Or Range("E4") = "" Then
+If Range("E3") = "" Or Range("E4") = "" Then
+
         MsgBox "erro"
         MsgBox "Dados devem ser preenchidos!"
         Exit Sub
         End If
        
-    If Range("E2") = 0 Then
+If Range("E2") = 0 Then
     
-    GoTo aqui
+GoTo aqui
     
-    End If
+End If
     
-    If Range("Banco!A2").Offset(0, 0) = Range("E2") Then
+If Range("Banco!A2").Offset(0, 0) = Range("E2") Then
     
    Range("Banco!A2") = Range("Base!E2")
    Range("Banco!B2") = Range("Base!E3")
@@ -24,7 +25,7 @@ Dim Nome As String, Idade As Integer, i As Integer
    Range("E3") = ""
    Range("E4") = ""
    
-    MsgBox "Dados atualizados com sucesso"
+MsgBox "Dados atualizados com sucesso"
     Exit Sub
     
     End If
@@ -62,9 +63,9 @@ Idade = Range("E4")
     Range("Banco!B" & Rows.Count).End(xlUp).Offset(1, 0) = Range("E3")
     Range("Banco!C" & Rows.Count).End(xlUp).Offset(1, 0) = Range("E4")
 
-Range("E2") = ""
-Range("E3") = ""
-Range("E4") = ""
+    Range("E2") = ""
+    Range("E3") = ""
+    Range("E4") = ""
 
 MsgBox "Dados cadastrados com sucesso!"
 
@@ -88,25 +89,20 @@ End If
      Exit Sub
      End If
      
-     If Numero < WorksheetFunction.Min(Planilha2.Range("A:A")) Or Numero > WorksheetFunction.Min(Planilha2.Range("A:A")) And Numero < WorksheetFunction.Max(Planilha2.Range("A:A")) Then
-     
-     MsgBox "Dados Não Encontrados"
-     
-    Range("E2") = ""
-    Range("E3") = ""
-    Range("E4") = ""
-     Exit Sub
-     End If
      
     If Numero = Range("Banco!A2") Then
     
-    MsgBox "Aeee"
+    MsgBox "Buscando dados..."
     
-    Range("Base!E2") = Range("Banco!A2")
-    Range("Base!E3") = Range("Banco!B2")
-    Range("Base!E4") = Range("Banco!C2")
+        Range("Base!E2") = Range("Banco!A2")
+        Range("Base!E3") = Range("Banco!B2")
+        Range("Base!E4") = Range("Banco!C2")
     
     Exit Sub
+    End If
+    
+    If Range("Banco!A2").Offset(0, 1) = "" Then
+        MsgBox "Dados excluídos", vbCritical
     
     End If
     
@@ -114,15 +110,27 @@ End If
     
 Do While Range("Banco!A2").Offset(0, 0) <> Numero
     
-    If Range("Banco!A2").Offset(i, 0) = Numero Then
-        MsgBox "Aee Caraio"
+    If Range("Banco!A2").Offset(i, 0).Offset(0, 1) = "" And Range("Banco!A2").Offset(i, 0) = Numero Then
+        MsgBox "Dados Excluidos"
         
-    Range("Base!E2") = Range("Banco!A2").Offset(i, 0)
-    Range("Base!E3") = Range("Banco!A2").Offset(i, 0).Offset(0, 1)
-    Range("Base!E4") = Range("Banco!A2").Offset(i, 0).Offset(0, 2)
+        Range("E2") = ""
+        Range("E3") = ""
+        Range("E4") = ""
+        
+        
+        Exit Sub
+        
+ElseIf Range("Banco!A2").Offset(i, 0) = Numero Then
+        MsgBox "Buscando dados..."
+        
+        Range("Base!E2") = Range("Banco!A2").Offset(i, 0)
+        Range("Base!E3") = Range("Banco!A2").Offset(i, 0).Offset(0, 1)
+        Range("Base!E4") = Range("Banco!A2").Offset(i, 0).Offset(0, 2)
     
     Exit Sub
     
+  
+        
     Else
      
       End If
@@ -145,9 +153,8 @@ Dim i As Integer
 
     If Range("Banco!A2").Offset(0, 0) = Range("E2") Then
     
-   Range("Banco!A2") = "" 'Range("Base!E2")
-   Range("Banco!B2") = "" 'Range("Base!E3")
-   Range("Banco!C2") = "" 'Range("Base!E4")
+   Range("Banco!B2") = ""
+   Range("Banco!C2") = ""
    
    Range("E2") = ""
    Range("E3") = ""
@@ -163,11 +170,9 @@ i = 1
     Do While Range("Banco!A2").Offset(0, 0) <> Range("E2")
     
     If Range("Banco!A2").Offset(i, 0) = Range("E2") Then
-        
-    Range("Banco!A2").Offset(i, 0) = "" 'Range("Base!E2")
-    Range("Banco!A2").Offset(i, 0).Offset(0, 1) = "" 'Range("Base!E3")
-    Range("Banco!A2").Offset(i, 0).Offset(0, 2) = "" 'Range("Base!E4")
-    
+      
+    Range("Banco!A2").Offset(i, 0).Offset(0, 1) = ""
+    Range("Banco!A2").Offset(i, 0).Offset(0, 2) = ""
     Range("E2") = ""
     Range("E3") = ""
     Range("E4") = ""
